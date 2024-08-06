@@ -33,21 +33,8 @@ spec:
             memory: 100Mi
           limits:
             cpu: 100m
-            memory: 100Mi
-        env:
-        - name: DB_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: go-web-app-deployment
-              key: DB_HOST
+            memory: 100Mi        
         ports:
         - containerPort:  8080
-          name:  go-web-app-deployment
-        volumeMounts:
-        - name: localtime
-          mountPath: /etc/localtime
-      volumes:
-        - name: localtime
-          hostPath:
-            path: /usr/share/zoneinfo/Asia/Shanghai
-      restartPolicy: Always
+          name:  go-web-app
+        
